@@ -43,7 +43,3 @@ Storing text chunks along with their corresponding embedding representations, ca
 
 After indexing, a QA Chain Retrieval Pipeline is set up in order to check the Q&A functioning and performance. Memory and Agents any are included in the process.
 
-
-## 🌊 QA Chain Retrieval Pipeline
-
-The pipeline created contains the main llm model, memory, the QA chain and the agents. The prompt template is used to complete the QA chain with an slight modification to point out tot he mode to look up first in the Vectorstore.
