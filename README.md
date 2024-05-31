@@ -1,10 +1,6 @@
-# AGENTIC RAG LANGCHAIN 👮
+# Agentic-RAG
 
-<p align="center">
-<img alt="Screen Shot 2024-01-05 at 9 05 56 AM" src="https://github.com/benitomartin/Agentic-RAG-Langchain-Pinecone/assets/116911431/5341fd83-8f18-4698-9382-e2734828f308", width=500>
-</p>
-
-This repository contains a full Q&A pipeline using LangChain framework, Pinecone as vector database and Tavily as Agent. The data used are the transcriptions of TEDx Talks. A short description of how Tokenizers and Embeddings work is included. Use this **[Link](https://nbviewer.org/github/benitomartin/agentic-rag-langchain-pinecone/blob/main/RAG_Langchain_Agents.ipynb)** if the notebook cannot be opened.
+This repository contains a full Q&A pipeline using LangChain framework, Pinecone as vector database and Tavily as Agent. The data used are the transcriptions of TEDx Talks. A short description of how Tokenizers and Embeddings work is included.
 
 The main steps taken to build the RAG pipeline can be summarize as follows:
 
@@ -51,77 +47,7 @@ After indexing, a QA Chain Retrieval Pipeline is set up in order to check the Q&
 ## 🌊 QA Chain Retrieval Pipeline
 
 The pipeline created contains the main llm model, memory, the QA chain and the agents. The prompt template is used to complete the QA chain with an slight modification to point out tot he mode to look up first in the Vectorstore.
-
-```
-# Set prompt template
-
-template= '''
-          Answer the following questions as best you can. You have access to the following tools:
-
-          {tools}
-
-          Use the following format:
-
-          Question: the input question you must answer
-          Thought: you should always think about what to do
-          Action: the action to take, should be one of [{tool_names}]. Always look first in Pinecone Document Store
-          Action Input: the input to the action
-          Observation: the result of the action
-          ... (this Thought/Action/Action Input/Observation can repeat 2 times)
-          Thought: I now know the final answer
-          Final Answer: the final answer to the original input question
-
-          Begin!
-
-          Question: {input}
-          Thought:{agent_scratchpad}
-          '''
-
-prompt = PromptTemplate.from_template(template)
-```
-```
-llm = ChatOpenAI(temperature=0.0, model="gpt-3.5-turbo", max_tokens=512)
-
-
-# Conversational memory
-conversational_memory = ConversationBufferWindowMemory(
-                        memory_key='chat_history',
-                        k=5,
-                        return_messages=True)
-
-# Retrieval qa chain
-qa_db = RetrievalQA.from_chain_type(
-                                    llm=llm,
-                                    chain_type="stuff",
-                                    retriever=vectorstore.as_retriever())
-
-tavily = TavilySearchResults(max_results=10, tavily_api_key=TAVILY_API_KEY)
-
-tools = [
-    Tool(
-        name = "Pinecone Document Store",
-        func = qa_db.run,
-        description = "Use it to lookup information from the Pinecone Document Store"
-    ),
-
-    Tool(
-        name="Tavily",
-        func=tavily.run,
-        description="Use this to lookup information from Tavily",
-    )
-]
-
-agent = create_react_agent(llm,
-                           tools,
-                           prompt)
-
-agent_executor = AgentExecutor(tools=tools,
-                         agent=agent,
-                         handle_parsing_errors=True,
-                         verbose=True,
-                         memory=conversational_memory)
-
-```
+ 
 
 ## 📈 Further Steps
 
