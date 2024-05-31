@@ -16,8 +16,6 @@ The main steps taken to build the RAG pipeline can be summarize as follows:
 
 * **QA Chain Retrieval**: RetrievalQA with memory and agents
 
-Feel free to ⭐ and clone this repo 😉
-
 ## 👨‍💻 **Tech Stack**
 
 ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
