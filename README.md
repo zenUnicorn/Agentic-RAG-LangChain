@@ -30,11 +30,11 @@ The documents are loaded and indexed using **CSVLoader** in the initial project 
 
 - Select a splitting method and its hyperparameters: we will use the **RecursiveCharacterTextSplitter**.
 
-- Select the embeddings model: in our case the **OpenAI**
+- Select the embeddings model: in our case, the **OpenAI**
 
 - Select a Vector Store: **Pinecone**.
 
 Storing text chunks along with their corresponding embedding representations, capturing the semantic meaning of the text. These embeddings facilitate easy retrieval of chunks based on their semantic similarity. 
 
-After indexing, a QA Chain Retrieval Pipeline is set up in order to check the Q&A functioning and performance. Memory and Agents any are included in the process.
+After indexing, a QA Chain Retrieval Pipeline is set up to check the Q&A's functioning and performance. Memory and Agents are included in the process.
 
