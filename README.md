@@ -1,14 +1,14 @@
 # Agentic-RAG
 
-This repository contains a full Q&A pipeline using LangChain framework, Pinecone as vector database and Tavily as Agent. The data used are the transcriptions of TEDx Talks. A short description of how Tokenizers and Embeddings work is included.
+This repository contains a full Q&A pipeline using the LangChain framework, Pinecone as vector database, and Tavily as Agent. The data used are the transcriptions of TEDx Talks. A short description of how Tokenizers and Embeddings work is included.
 
-The main steps taken to build the RAG pipeline can be summarize as follows:
+The main steps taken to build the RAG pipeline can be summarized as follows:
 
-* **Data Ingestion**: load data from csv file
+* **Data Ingestion**: load data from CSV file
 
 * **Tokenization**: how a tokenizer works
 
-* **Embeddgings**: how a embeddgings works with cosine similarity concept
+* **Embeddgings**: how an embedding works with cosine similarity concept
 
 * **Indexing**: RecursiveCharacterTextSplitter for indexing in chunks
 
