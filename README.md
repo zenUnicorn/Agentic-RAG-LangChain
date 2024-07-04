@@ -36,5 +36,5 @@ The documents are loaded and indexed using **CSVLoader** in the initial project 
 
 Storing text chunks along with their corresponding embedding representations, capturing the semantic meaning of the text. These embeddings facilitate easy retrieval of chunks based on their semantic similarity. 
 
-After indexing, a QA Chain Retrieval Pipeline is set up to check the Q&A's functioning and performance. Memory and Agents are included in the process
+After indexing, a QA Chain Retrieval Pipeline is set up to check the Q&A's functioning and performance. Memory and Agents are included in the process.
 
