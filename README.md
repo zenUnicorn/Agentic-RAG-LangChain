@@ -1,4 +1,4 @@
-# Agentic-RAG.
+# Agentic-RAG
 
 This repository contains a full Q&A pipeline using the LangChain framework, Pinecone as a vector database, and Tavily as an Agent. The data used are transcriptions of TEDx Talks. A short description of how Tokenizers and Embeddings work is included.
 
